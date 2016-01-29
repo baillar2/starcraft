@@ -1,13 +1,30 @@
 angular.module('moduleOne',[])
 
 angular.module('moduleOne')
-	.controller('controllerOne', ['$scope', 'dataFactory', function($scope){
+	.controller('controllerOne', ['$scope','playerData',
+	 '$filter', function($scope, playerData, $filter){
+ 	$scope.playerData=playerData
+ 	$scope.displayNumber = 0
 
-
-
+ 	$scope.increase = function(){
+ 		if ($scope.displayNumber>=80){
+ 			$scope.displayNumber = 80
+ 		}
+ 		else {
+ 		$scope.displayNumber+=20
+ 		}
+ 	}
+ 	$scope.decrease = function(){
+ 		if ($scope.displayNumber<0){
+ 			$scope.displayNumber = 0
+ 		}
+ 		else {
+ 			$scope.displayNumber-=20
+ 		}
+ 	}
 	}])
 
-angular.module('moduleOne').factory('dataFactory', function(){
+angular.module('moduleOne').factory('playerData', function(){
 
 	return {
     cols: [

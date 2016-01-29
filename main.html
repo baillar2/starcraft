@@ -8,6 +8,19 @@
 	<script type="text/javascript" src="main.js"></script>
 </head>
 <body ng-controller="controllerOne">
+<h1>Starcraft Player Rankings</h1>
+
+<table>
+	<tr>
+		<th ng-repeat="label in playerData.cols">{{label}}</th>
+	</tr>
+ 	
+ 	<tr ng-repeat="player in playerData.data | limitTo:20:displayNumber ">
+ 		<td ng-repeat="attr in player">{{attr}}</td>
+ 		<td>Index {{playerData.data.indexOf(player)}}</td>
+ 	</tr>
+</table>
+<button ng-click='decrease()'>Previous</button> <button ng-click='increase()'>Next</button>
 
 </body>
 </html>
